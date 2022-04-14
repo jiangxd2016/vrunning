@@ -1,28 +1,27 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import type { CompilerError } from "vue/compiler-sfc";
+import { ref, watch } from 'vue'
+import type { CompilerError } from 'vue/compiler-sfc'
 
-const props = defineProps(["err", "warn"]);
+const props = defineProps(['err', 'warn'])
 
-const dismissed = ref(false);
+const dismissed = ref(false)
 
 watch(
   () => [props.err, props.warn],
   () => {
-    dismissed.value = false;
-  }
-);
+    dismissed.value = false
+  },
+)
 
 function formatMessage(err: string | Error): string {
-  if (typeof err === "string") {
-    return err;
+  if (typeof err === 'string') {
+    return err
   } else {
-    let msg = err.message;
-    const loc = (err as CompilerError).loc;
-    if (loc && loc.start) {
-      msg = `(${loc.start.line}:${loc.start.column}) ${msg}`;
-    }
-    return msg;
+    let msg = err.message
+    const loc = (err as CompilerError).loc
+    if (loc && loc.start) msg = `(${loc.start.line}:${loc.start.column}) ${msg}`
+
+    return msg
   }
 }
 </script>
@@ -118,6 +117,7 @@ pre {
 .msg pre::-webkit-scrollbar {
   display: none;
 }
+
 button {
   border: none;
   outline: none;

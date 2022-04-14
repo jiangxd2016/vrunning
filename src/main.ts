@@ -1,4 +1,2 @@
-import { createApp } from "vue";
-import App from "./index.vue";
-
-createApp(App).mount("#app");
+import Vrunning from './vrunning.vue'
+export default Vrunning

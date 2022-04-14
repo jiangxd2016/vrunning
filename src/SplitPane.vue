@@ -1,40 +1,28 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from "vue";
+import { computed, reactive, ref } from 'vue'
 
-const props = defineProps<{ layout?: "horizontal" | "vertical" }>();
-const isVertical = computed(() => props.layout === "vertical");
+const props = defineProps<{ layout?: 'horizontal' | 'vertical' }>()
+const isVertical = computed(() => props.layout === 'vertical')
 
-const container = ref();
+const container = ref()
 
 const state = reactive({
   dragging: false,
   split: 50,
-});
+})
 
 const boundSplit = computed(() => {
-  const { split } = state;
-  return split < 20 ? 20 : split > 80 ? 80 : split;
-});
+  const { split } = state
+  return split < 20 ? 20 : split > 80 ? 80 : split
+})
 </script>
 
 <template>
-  <div
-    ref="container"
-    class="split-pane"
-    :class="{
-      vertical: isVertical,
-    }"
-  >
-    <div
-      class="left"
-      :style="{ [isVertical ? 'height' : 'width']: boundSplit + '%' }"
-    >
+  <div ref="container" class="split-pane" :class="{ vertical: isVertical }">
+    <div class="left" :style="{ [isVertical ? 'height' : 'width']: boundSplit + '%' }">
       <slot name="left" />
     </div>
-    <div
-      class="right"
-      :style="{ [isVertical ? 'height' : 'width']: 100 - boundSplit + '%' }"
-    >
+    <div class="right" :style="{ [isVertical ? 'height' : 'width']: 100 - boundSplit + '%' }">
       <slot name="right" />
     </div>
   </div>
@@ -52,9 +40,11 @@ const boundSplit = computed(() => {
   position: relative;
   height: 100%;
 }
+
 .left {
   border-right: 1px solid var(--border);
 }
+
 .dragger {
   position: absolute;
   z-index: 3;
@@ -64,6 +54,7 @@ const boundSplit = computed(() => {
   width: 10px;
   cursor: ew-resize;
 }
+
 .toggler {
   display: none;
   z-index: 3;
@@ -107,6 +98,7 @@ const boundSplit = computed(() => {
   .vertical .right {
     width: 100%;
   }
+
   .vertical .left {
     border-right: none;
     border-bottom: 1px solid var(--border);
@@ -120,18 +112,23 @@ const boundSplit = computed(() => {
     width: 100% !important;
     height: 100% !important;
   }
+
   .dragger {
     display: none;
   }
+
   .split-pane .toggler {
     display: block;
   }
+
   .split-pane .right {
     display: none;
   }
+
   .split-pane.show-output .right {
     display: block;
   }
+
   .split-pane.show-output .left {
     display: none;
   }

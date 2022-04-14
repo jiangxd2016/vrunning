@@ -101,7 +101,7 @@
 }
 .CodeMirror-foldgutter-open:after,
 .CodeMirror-foldgutter-folded:after {
-  content: '>';
+  content: ">";
   font-size: 0.8em;
   opacity: 0.8;
   transition: transform 0.2s;
@@ -531,7 +531,7 @@ div.CodeMirror-dragcursors {
 
 /* See issue #2901 */
 .cm-tab-wrap-hack:after {
-  content: '';
+  content: "";
 }
 
 /* Help users use markselection to safely style text background */
