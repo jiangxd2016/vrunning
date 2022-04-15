@@ -9,7 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
-      vrunning: path.resolve(__dirname, '../src/main.ts'),
+      'vrunning': path.resolve(__dirname, '../src/main.ts'),
     },
   },
   plugins: [

@@ -4,63 +4,63 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watchEffect } from 'vue'
-import { debounce } from '../utils'
-import CodeMirror, { codemirrorOption } from './codemirror'
+import { onMounted, ref, watchEffect } from "vue";
+import { debounce } from "../utils";
+import CodeMirror, { codemirrorOption } from "./codemirror";
 
 interface Props {
-  mode?: string
-  value?: string
-  readonly?: boolean
+  mode?: string;
+  value?: string;
+  readonly?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  mode: 'htmlmixed',
-  value: '',
+  mode: "htmlmixed",
+  value: "",
   readonly: false,
-})
+});
 
-const emit = defineEmits<(e: 'change', value: string) => void>()
+const emit = defineEmits<(e: "change", value: string) => void>();
 
-const el = ref()
-const needAutoResize = true
+const el = ref();
+const needAutoResize = true;
 
 onMounted(() => {
   const editor = CodeMirror(el.value!, {
     ...codemirrorOption,
     ...{
-      value: '',
+      value: "",
       readOnly: props.readonly,
       lineWrapping: true,
     },
-  })
+  });
 
-  editor.on('change', () => {
-    emit('change', editor.getValue())
-  })
-
-  watchEffect(() => {
-    const cur = editor.getValue()
-    if (props.value !== cur) editor.setValue(props.value)
+  editor.on("change", () => {
+    emit("change", editor.getValue());
   })
 
   watchEffect(() => {
-    editor.setOption('mode', props.mode)
+    const cur = editor.getValue();
+    if (props.value !== cur) editor.setValue(props.value);
+  })
+
+  watchEffect(() => {
+    editor.setOption("mode", props.mode);
   })
 
   setTimeout(() => {
-    editor.refresh()
-  }, 50)
+    editor.refresh();
+  }, 50);
 
   if (needAutoResize) {
     window.addEventListener(
-      'resize',
+      "resize",
       debounce(() => {
-        editor.refresh()
+        editor.refresh();
       }),
     )
   }
-})
+});
 </script>
 
 <style>

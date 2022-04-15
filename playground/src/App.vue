@@ -1,7 +1,7 @@
 <template>
   <main font-sans text=" gray-700 dark:gray-200" relative :class="{ debug: isDebug }">
     <TheNav />
-    <Vrunning></Vrunning>
+    <Vrunning />
   </main>
 </template>
 

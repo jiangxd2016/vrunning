@@ -1,34 +1,34 @@
-import path from 'path'
-import vue from '@vitejs/plugin-vue'
-import postcss from 'rollup-plugin-postcss'
-import esbuild from 'rollup-plugin-esbuild'
-import typescript from 'rollup-plugin-ts'
-import commonjs from '@rollup/plugin-commonjs'
-import { terser } from 'rollup-plugin-terser'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
-const basePath = path.resolve(__dirname, '../')
-console.log(basePath)
+import path from "path";
+import vue from "@vitejs/plugin-vue";
+import postcss from "rollup-plugin-postcss";
+import esbuild from "rollup-plugin-esbuild";
+import typescript from "rollup-plugin-ts";
+import commonjs from "@rollup/plugin-commonjs";
+import { terser } from "rollup-plugin-terser";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+const basePath = path.resolve(__dirname, "../");
+console.log(basePath);
 
 export default {
   input: `${basePath}/src/main.ts`,
   output: [
     {
-      name: 'vrunning',
+      name: "vrunning",
       file: `${basePath}/dist/index.mjs`,
-      format: 'es',
+      format: "es",
       globals: {
-        vue: 'Vue',
+        vue: "Vue",
       },
-      exports: 'named',
+      exports: "named",
     },
     {
-      name: 'vrunning',
+      name: "vrunning",
       file: `${basePath}/dist/index.cjs`,
-      format: 'umd',
+      format: "umd",
       globals: {
-        vue: 'Vue',
+        vue: "Vue",
       },
-      exports: 'named',
+      exports: "named",
     },
   ],
   plugins: [
@@ -36,7 +36,7 @@ export default {
     vue(),
     nodeResolve(),
     commonjs({
-      include: 'node_modules/**',
+      include: "node_modules/**",
     }),
     terser(),
     esbuild({
@@ -46,5 +46,5 @@ export default {
       extract: true,
     }),
   ],
-  external: ['vue'],
-}
+  external: ["vue"],
+};
