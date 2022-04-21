@@ -30,13 +30,13 @@ export async function compileFile(store: Store, file: File) {
   }
 
   const id = await hashId()
-  if (descriptor.styles.some((s) => s.lang) || (descriptor.template && descriptor.template.lang)) {
+  if (descriptor.styles.some(s => s.lang) || (descriptor.template && descriptor.template.lang)) {
     store.state.errors = ['lang="x" pre-processors for <template> or <style> are currently not ' + 'supported.']
     return
   }
 
-  const scriptLang =
-    (descriptor.script && descriptor.script.lang) || (descriptor.scriptSetup && descriptor.scriptSetup.lang)
+  const scriptLang
+    = (descriptor.script && descriptor.script.lang) || (descriptor.scriptSetup && descriptor.scriptSetup.lang)
   const isTS = scriptLang === 'ts'
   if (scriptLang && !isTS) store.state.errors = ['Only lang="ts" is supported for <script> blocks.']
 
@@ -93,7 +93,7 @@ async function doCompileScript(
   store: Store,
   descriptor: SFCDescriptor,
   id: string,
-  isTS: boolean
+  isTS: boolean,
 ): Promise<[string, BindingMetadata | undefined] | undefined> {
   if (descriptor.script || descriptor.scriptSetup) {
     try {
@@ -126,13 +126,13 @@ function doCompileTemplate(
   descriptor: SFCDescriptor,
   id: string,
   bindingMetadata: BindingMetadata | undefined,
-  isTS: boolean
+  isTS: boolean,
 ) {
   const templateResult = Compiler.compileTemplate({
     source: descriptor.template!.content,
     filename: descriptor.filename,
     id,
-    scoped: descriptor.styles.some((s) => s.scoped),
+    scoped: descriptor.styles.some(s => s.scoped),
     slotted: descriptor.slotted,
     isProd: true,
     compilerOptions: {
@@ -148,8 +148,8 @@ function doCompileTemplate(
   const fnName = 'render'
 
   return (
-    `\n${templateResult.code.replace(/\nexport (function|const) (render|ssrRender)/, `$1 ${fnName}`)}` +
-    `\n${COMP_IDENTIFIER}.${fnName} = ${fnName}`
+    `\n${templateResult.code.replace(/\nexport (function|const) (render|ssrRender)/, `$1 ${fnName}`)}`
+    + `\n${COMP_IDENTIFIER}.${fnName} = ${fnName}`
   )
 }
 
@@ -157,6 +157,6 @@ async function hashId() {
   const msgUint8 = new TextEncoder().encode(`${Math.random()}`) // encode as (utf-8) Uint8Array
   const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8) // hash the message
   const hashArray = Array.from(new Uint8Array(hashBuffer)) // convert buffer to byte array
-  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('') // convert bytes to hex string
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('') // convert bytes to hex string
   return hashHex.slice(0, 8)
 }

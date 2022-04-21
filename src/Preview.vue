@@ -39,7 +39,7 @@ watch(
   () => {
     const iframeContent = iframe.value
     setHTML(iframeContent)
-  }
+  },
 )
 
 function setIframe() {

@@ -13,7 +13,7 @@ watch(
   () => [props.err, props.warn],
   () => {
     dismissed.value = false
-  }
+  },
 )
 
 function formatMessage(err: string | Error): string {
