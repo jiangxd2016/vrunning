@@ -22,7 +22,7 @@ function formatMessage(err: string | Error): string {
   } else {
     let msg = err.message
     const loc = (err as CompilerError).loc
-    if (loc && loc.start) msg = `(${loc.start.line}:${loc.start.column}) ${msg}`
+    if (loc && loc.start) { msg = `(${loc.start.line}:${loc.start.column}) ${msg}` }
     return msg
   }
 }

@@ -38,12 +38,12 @@ export async function compileFile(store: Store, file: File) {
   const scriptLang
     = (descriptor.script && descriptor.script.lang) || (descriptor.scriptSetup && descriptor.scriptSetup.lang)
   const isTS = scriptLang === 'ts'
-  if (scriptLang && !isTS) store.state.errors = ['Only lang="ts" is supported for <script> blocks.']
+  if (scriptLang && !isTS) { store.state.errors = ['Only lang="ts" is supported for <script> blocks.'] }
 
   let clientCode = ''
 
   const clientScriptResult = await doCompileScript(store, descriptor, id, isTS)
-  if (!clientScriptResult) return
+  if (!clientScriptResult) { return }
 
   const [clientScript, bindings] = clientScriptResult
   clientCode += clientScript
@@ -52,12 +52,12 @@ export async function compileFile(store: Store, file: File) {
   // only need dedicated compilation if not using <script setup>
   if (descriptor.template && !descriptor.scriptSetup) {
     const clientTemplateResult = doCompileTemplate(store, descriptor, id, bindings, isTS)
-    if (!clientTemplateResult) return
+    if (!clientTemplateResult) { return }
 
     clientCode += clientTemplateResult
   }
 
-  if (clientCode) compiled.value.js = clientCode.trimStart()
+  if (clientCode) { compiled.value.js = clientCode.trimStart() }
 
   // styles
   let css = ''
@@ -77,13 +77,12 @@ export async function compileFile(store: Store, file: File) {
     if (styleResult.errors.length > 0) {
       // postcss uses pathToFileURL which isn't polyfilled in the browser
       // ignore these errors for now
-      if (!styleResult.errors[0].message.includes('pathToFileURL')) store.state.errors = styleResult.errors
+      if (!styleResult.errors[0].message.includes('pathToFileURL')) { store.state.errors = styleResult.errors }
     } else {
       css += `${styleResult.code}\n`
     }
   }
-  if (css) compiled.value.css = css.trim()
-  else compiled.value.css = '/* No <style> tags present */'
+  if (css) { compiled.value.css = css.trim() } else { compiled.value.css = '/* No <style> tags present */' }
 
   // clear errors
   store.state.errors = []
@@ -110,7 +109,7 @@ async function doCompileScript(
       let code = ''
       code += `\n${Compiler.rewriteDefault(compiledScript.content, COMP_IDENTIFIER, expressionPlugins)}`
 
-      if ((descriptor.script || descriptor.scriptSetup)!.lang === 'ts') code = await transformTS(code)
+      if ((descriptor.script || descriptor.scriptSetup)!.lang === 'ts') { code = await transformTS(code) }
 
       return [code, compiledScript.bindings]
     } catch (e: any) {

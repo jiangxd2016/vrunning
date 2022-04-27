@@ -41,7 +41,7 @@ onMounted(() => {
 
   watchEffect(() => {
     const cur = editor.getValue()
-    if (props.value !== cur) editor.setValue(props.value)
+    if (props.value !== cur) { editor.setValue(props.value) }
   })
 
   watchEffect(() => {
