@@ -10,13 +10,13 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, ref, watch } from 'vue'
-import type Store from './store'
+import { inject, onMounted, ref, watch } from 'vue';
+import type Store from './store';
 
-const defineImport = 'https://unpkg.com/es-module-shims@0.10.1/dist/es-module-shims.min.js'
+const defineImport = 'https://unpkg.com/es-module-shims@0.10.1/dist/es-module-shims.min.js';
 const defineDep= {
   vue: 'https://unpkg.com/@vue/runtime-dom@3.2.31/dist/runtime-dom.esm-browser.js',
-}
+};
 interface globalProps {
   store?: Store
   readonly?: boolean
@@ -27,27 +27,27 @@ interface globalProps {
   layout?: 'horizontal' | 'vertical'
 }
 
-const store = inject<Store>('store')
+const store = inject<Store>('store');
 
-const globalProp = inject<globalProps>('globalProps')
-const iframe =ref<HTMLIFrameElement>(null)
+const globalProp = inject<globalProps>('globalProps');
+const iframe =ref<HTMLIFrameElement>(null);
 
-onMounted(()=>setIframe())
+onMounted(()=>setIframe());
 
 watch(
   () => store!.state.file.compiled.js,
   () => {
-    setHTML(iframe.value)
+    setHTML(iframe.value);
   },
-)
+);
 
 function setIframe() {
-  const iframeDocument = iframe.value.contentWindow.document
-  const stylesTags = globalProp?.depCss.map((style: string) => `<link rel='stylesheet' href='${style}' />`)
+  const iframeDocument = iframe.value.contentWindow.document;
+  const stylesTags = globalProp?.depCss.map((style: string) => `<link rel='stylesheet' href='${style}' />`);
   
   globalProp.depLibs.forEach((lib) => {
-    defineDep[lib.name] = lib.url
-  })
+    defineDep[lib.name] = lib.url;
+  });
 
   const html = `
           <!DOCTYPE html>
@@ -63,13 +63,13 @@ function setIframe() {
                 </div>
                 <div id='app'></div>
               </body>
-          </html>`
-  iframeDocument.open()
-  iframeDocument.write(html)
-  iframeDocument.close()
+          </html>`;
+  iframeDocument.open();
+  iframeDocument.write(html);
+  iframeDocument.close();
   iframe.value.addEventListener('load', () => {
-    setHTML(iframe.value)
-  })
+    setHTML(iframe.value);
+  });
 }
 
 function getScript(script?: string) {
@@ -82,37 +82,37 @@ function getScript(script?: string) {
       app.config.unwrapInjectedRef = true
       app.config.errorHandler = (e) => console.error(e)
       app.mount('#app')
-      `
+      `;
 }
 // 设置html
 function setHTML(iframe: HTMLIFrameElement) {
-  const iframeDocument = iframe.contentWindow.document
+  const iframeDocument = iframe.contentWindow.document;
 
   if (iframeDocument) {
-    const elBox = iframeDocument.querySelector('#body')
+    const elBox = iframeDocument.querySelector('#body');
     if (elBox) {
-      const fragment = iframeDocument.createDocumentFragment()
+      const fragment = iframeDocument.createDocumentFragment();
       // 创建样式
-      const newStyle = iframeDocument.createElement('style')
-      newStyle.type = 'text/css'
-      newStyle.innerHTML = store?.state.file.compiled.css
+      const newStyle = iframeDocument.createElement('style');
+      newStyle.type = 'text/css';
+      newStyle.innerHTML = store?.state.file.compiled.css;
 
       // 创建元素
-      const elApp = iframeDocument.createElement('div')
-      elApp.setAttribute('id', 'app')
+      const elApp = iframeDocument.createElement('div');
+      elApp.setAttribute('id', 'app');
       // 创建js
-      const newScript = iframeDocument.createElement('script')
-      newScript.type = 'module'
-      newScript.innerHTML = getScript(store?.state.file.compiled.js)
+      const newScript = iframeDocument.createElement('script');
+      newScript.type = 'module';
+      newScript.innerHTML = getScript(store?.state.file.compiled.js);
 
       // 重置 html
-      elBox.innerHTML = ''
+      elBox.innerHTML = '';
 
-      fragment.append(newScript)
-      fragment.append(elApp)
-      fragment.append(newStyle)
+      fragment.append(newScript);
+      fragment.append(elApp);
+      fragment.append(newStyle);
 
-      elBox.append(fragment)
+      elBox.append(fragment);
     }
   }
 }

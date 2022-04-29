@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { inject } from 'vue'
-import CodeMirror from './codemirror/CodeMirror.vue'
-import Message from './Message.vue'
-import { debounce } from './utils'
-import type Store from './store'
+import { inject } from 'vue';
+import CodeMirror from './codemirror/CodeMirror.vue';
+import Message from './Message.vue';
+import { debounce } from './utils';
+import type Store from './store';
 
-const store = inject('store') as Store
+const store = inject('store') as Store;
 
 const onChange = debounce((code: string) => {
-  store.state.file.code = code
-}, 150)
+  store.state.file.code = code;
+}, 150);
 </script>
 
 <template>

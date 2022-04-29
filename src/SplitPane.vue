@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue';
 
-const props = defineProps<{ layout?: 'horizontal' | 'vertical' }>()
-const isVertical = computed(() => props.layout === 'vertical')
+const props = defineProps<{ layout?: 'horizontal' | 'vertical' }>();
+const isVertical = computed(() => props.layout === 'vertical');
 
-const container = ref()
+const container = ref();
 
 const state = reactive({
   dragging: false,
   split: 50,
-})
+});
 
 const boundSplit = computed(() => {
-  const { split } = state
-  return split < 20 ? 20 : split > 80 ? 80 : split
-})
+  const { split } = state;
+  return split < 20 ? 20 : split > 80 ? 80 : split;
+});
 </script>
 
 <template>

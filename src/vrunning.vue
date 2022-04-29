@@ -12,11 +12,11 @@
 </template>
 
 <script lang="ts" setup>
-import { provide } from 'vue'
-import SplitPane from './SplitPane.vue'
-import Editor from './Editor.vue'
-import Preview from './Preview.vue'
-import Store from './store'
+import { provide } from 'vue';
+import SplitPane from './SplitPane.vue';
+import Editor from './Editor.vue';
+import Preview from './Preview.vue';
+import Store from './store';
 interface globalProps {
   store?: Store
   readonly?: boolean
@@ -42,10 +42,10 @@ const props = withDefaults(defineProps<globalProps>(), {
     },
   ],
   depCss: () => ['https://unpkg.com/element-plus/dist/index.css'],
-})
+});
 
-provide('globalProps', props)
-provide('store', props.store)
+provide('globalProps', props);
+provide('store', props.store);
 </script>
 
 <style scoped>

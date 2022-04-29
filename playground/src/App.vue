@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import Vrunning from 'vrunning'
+import Vrunning from 'vrunning';
 // import IconVerticalVIew from "~icons/carbon/vertical-view";
 // import IconHorizontalView from "~icons/carbon/horizontal-view";
 // import IconOpenPanelLeft from "~icons/carbon/open-panel-filled-left";
@@ -28,5 +28,5 @@ const props = {
     },
   ],
   depCss: () => ['https://unpkg.com/element-plus/dist/index.css'],
-}
+};
 </script>
