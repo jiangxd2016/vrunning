@@ -30,7 +30,7 @@ function formatMessage(err: string | Error): string {
 
 <template>
   <Transition name="fade">
-    <div v-if="!dismissed && (err || warn)" class="msg" :class="err ? 'err' : 'warn'">
+    <div v-if="!dismissed" class="msg" :class="err ? 'err' : 'warn'">
       <pre>{{ formatMessage(err || warn) }}</pre>
       <button class="dismiss" @click="dismissed = true">✕</button>
     </div>

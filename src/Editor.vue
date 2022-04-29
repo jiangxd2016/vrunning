@@ -15,7 +15,7 @@ const onChange = debounce((code: string) => {
 <template>
   <div class="editor-container">
     <CodeMirror :value="store.state.file.code" @change="onChange" />
-    <Message :err="store.state.errors[0]" />
+    <Message v-if="store.state.errors.length > 0 || store.state.warn.length > 0" :err="store.state.errors[0]" :warn="store.state.warn[0]" />
   </div>
 </template>
 

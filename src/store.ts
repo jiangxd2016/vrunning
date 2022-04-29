@@ -42,6 +42,7 @@ export class File {
 export interface StoreState {
   file: File
   errors: (string | Error)[]
+  warn: string[]
 }
 
 export default class Store {
@@ -52,6 +53,7 @@ export default class Store {
     this.state = reactive({
       file,
       errors: [],
+      warn: []
     })
     watchEffect(() => {
       compileFile(this, this.state.file)

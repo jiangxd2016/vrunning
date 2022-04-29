@@ -14,7 +14,7 @@ import { inject, onMounted, ref, watch } from 'vue'
 import type Store from './store'
 
 const defineImport = 'https://unpkg.com/es-module-shims@0.10.1/dist/es-module-shims.min.js'
-const defineDep: { [key in string]: string } = {
+const defineDep= {
   vue: 'https://unpkg.com/@vue/runtime-dom@3.2.31/dist/runtime-dom.esm-browser.js',
 }
 interface globalProps {
@@ -29,25 +29,23 @@ interface globalProps {
 
 const store = inject<Store>('store')
 
-const globalProp = inject('globalProps') as globalProps
-const iframe = ref()
+const globalProp = inject<globalProps>('globalProps')
+const iframe =ref<HTMLIFrameElement>(null)
 
-onMounted(setIframe)
+onMounted(()=>setIframe())
 
 watch(
   () => store!.state.file.compiled.js,
   () => {
-    const iframeContent = iframe.value
-    setHTML(iframeContent)
+    setHTML(iframe.value)
   },
 )
 
 function setIframe() {
-  const iframeContent = iframe.value!
-
-  const iframeDocument = iframeContent.contentWindow.document
+  const iframeDocument = iframe.value.contentWindow.document
   const stylesTags = globalProp?.depCss.map((style: string) => `<link rel='stylesheet' href='${style}' />`)
-  globalProp?.depLibs!.forEach((lib) => {
+  
+  globalProp.depLibs.forEach((lib) => {
     defineDep[lib.name] = lib.url
   })
 
@@ -55,20 +53,22 @@ function setIframe() {
           <!DOCTYPE html>
             <html>
               <head>
-                <script async src='${defineImport}'><\\/script>
-                <script type='importmap' crossorigin='anonymous'>{'imports':${JSON.stringify(defineDep)}}<\\/script>
+                <script async src='${defineImport}'><\/script>
+                <script type="importmap" crossorigin="anonymous">{"imports":${JSON.stringify(defineDep)}}<\/script>
                 ${stylesTags!.join('\n')}
               </head>
               <body id='body'>
-                <div><pre id='error' style='color: red'></pre></div>
+                <div>
+                  <pre id='error' style='color: red'></pre>
+                </div>
                 <div id='app'></div>
               </body>
           </html>`
   iframeDocument.open()
   iframeDocument.write(html)
   iframeDocument.close()
-  iframeContent.addEventListener('load', () => {
-    setHTML(iframeContent)
+  iframe.value.addEventListener('load', () => {
+    setHTML(iframe.value)
   })
 }
 
@@ -85,8 +85,8 @@ function getScript(script?: string) {
       `
 }
 // 设置html
-function setHTML(iframeContent: any) {
-  const iframeDocument = iframeContent.contentWindow.document
+function setHTML(iframe: HTMLIFrameElement) {
+  const iframeDocument = iframe.contentWindow.document
 
   if (iframeDocument) {
     const elBox = iframeDocument.querySelector('#body')
