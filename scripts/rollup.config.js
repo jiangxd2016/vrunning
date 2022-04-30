@@ -33,9 +33,7 @@ export default {
   ],
   plugins: [
     typescript(),
-    vue({
-      reactivityTransform: true,
-    }),
+    vue(),
     nodeResolve(),
     commonjs({
       include: 'node_modules/**',
