@@ -1,5 +1,5 @@
-import { reactive, watchEffect } from "vue";
-import { compileFile } from "./transform";
+import { reactive, watchEffect } from 'vue';
+import { compileFile } from './transform';
 
 const welcomeCode = `
 <script setup>
@@ -29,19 +29,20 @@ const handleClick = () => {
 export class File {
   code: string;
   compiled = {
-    js: "",
-    css: "",
-    ssr: "",
+    js: '',
+    css: '',
+    ssr: '',
   };
 
-  constructor(code = "") {
+  constructor(code = '') {
     this.code = code;
   }
 }
 
 export interface StoreState {
-  file: File;
-  errors: (string | Error)[];
+  file: File
+  errors: (string | Error)[]
+  warn: string[]
 }
 
 export default class Store {
@@ -52,10 +53,11 @@ export default class Store {
     this.state = reactive({
       file,
       errors: [],
+      warn: []
     });
     watchEffect(() => {
       compileFile(this, this.state.file);
-    })
+    });
 
     compileFile(this, this.state.file);
   }

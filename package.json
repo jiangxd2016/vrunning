@@ -10,13 +10,11 @@
   },
   "license": "MIT",
   "author": "jiangxd <jangxd2016@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/estjs/vruning.git"
-  },
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
@@ -24,9 +22,11 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estjs/vruning.git"
+  },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "rollup -c scripts/rollup.config.js  -w ",
     "build": "rollup -c scripts/rollup.config.js",
@@ -40,7 +40,7 @@
   "dependencies": {
     "codemirror": "^5.65.3",
     "sucrase": "^3.21.0",
-    "vrunning": "workspace:^0.0.0",
+    "vrunning": "workspace:*",
     "vue": "^3.2.33"
   },
   "devDependencies": {

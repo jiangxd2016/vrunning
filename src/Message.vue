@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import type { CompilerError } from "vue/compiler-sfc";
+import { ref, watch } from 'vue';
+import type { CompilerError } from 'vue/compiler-sfc';
 
-const props = defineProps(["err", "warn"]);
+const props = defineProps<{
+  err: string | Error
+  warn: string
+}>();
 
 const dismissed = ref(false);
 
@@ -11,16 +14,15 @@ watch(
   () => {
     dismissed.value = false;
   },
-)
+);
 
 function formatMessage(err: string | Error): string {
-  if (typeof err === "string") {
+  if (typeof err === 'string') {
     return err;
   } else {
     let msg = err.message;
     const loc = (err as CompilerError).loc;
-    if (loc && loc.start)
-      msg = `(${loc.start.line}:${loc.start.column}) ${msg}`;
+    if (loc && loc.start) { msg = `(${loc.start.line}:${loc.start.column}) ${msg}`; }
     return msg;
   }
 }
@@ -28,11 +30,7 @@ function formatMessage(err: string | Error): string {
 
 <template>
   <Transition name="fade">
-    <div
-      v-if="!dismissed && (err || warn)"
-      class="msg"
-      :class="err ? 'err' : 'warn'"
-    >
+    <div v-if="!dismissed" class="msg" :class="err ? 'err' : 'warn'">
       <pre>{{ formatMessage(err || warn) }}</pre>
       <button class="dismiss" @click="dismissed = true">✕</button>
     </div>

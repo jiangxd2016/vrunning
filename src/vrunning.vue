@@ -1,11 +1,3 @@
-<!--
- * @Author: jiangxd
- * @Date: 2022-04-08 16:09:28
- * @LastEditTime: 2022-04-15 16:26:19
- * @LastEditors: jiangxd
- * @Description:
- * @FilePath: /vrunning/src/vrunning.vue
--->
 <template>
   <div class="vue-run">
     <SplitPane :layout="layout">
@@ -26,6 +18,7 @@ import Editor from "./Editor.vue";
 import Preview from "./Preview.vue";
 import Store from "./store";
 interface globalProps {
+<<<<<<< HEAD
   store?: Store;
   readonly?: boolean;
   autoResize?: boolean;
@@ -34,6 +27,16 @@ interface globalProps {
   depCss?: string[];
   position: "right" | "left";
   layout?: "horizontal" | "vertical";
+=======
+  store?: Store
+  readonly?: boolean
+  autoResize?: boolean
+  clearConsole?: boolean
+  depLibs?: { name: string; url: string }[]
+  depCss?: string[]
+  position: 'right' | 'left'
+  layout?: 'horizontal' | 'vertical'
+>>>>>>> 351d8a5dd7db074d9e3919abe3d236628a0b1722
 }
 
 const props = withDefaults(defineProps<globalProps>(), {
@@ -49,11 +52,19 @@ const props = withDefaults(defineProps<globalProps>(), {
       url: "https://cdn.jsdelivr.net/npm/element-plus@2.1.4/dist/index.full.mjs",
     },
   ],
+<<<<<<< HEAD
   depCss: () => ["https://unpkg.com/element-plus/dist/index.css"],
 });
 
 provide("globalProps", props);
 provide("store", props.store);
+=======
+  depCss: () => ['https://unpkg.com/element-plus/dist/index.css'],
+});
+
+provide('globalProps', props);
+provide('store', props.store);
+>>>>>>> 351d8a5dd7db074d9e3919abe3d236628a0b1722
 </script>
 
 <style scoped>
@@ -62,7 +73,7 @@ provide("store", props.store);
   --bg-soft: #f8f8f8;
   --border: #ddd;
   --text-light: #888;
-  --font-code: Menlo, Monaco, Consolas, "Courier New", monospace;
+  --font-code: Menlo, Monaco, Consolas, 'Courier New', monospace;
   --color-branding: #42b883;
   --color-branding-dark: #416f9c;
   --header-height: 38px;
@@ -71,8 +82,8 @@ provide("store", props.store);
   width: 100%;
   flex: 1;
   font-size: 13px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
   margin: 0;
   overflow: hidden;
   background-color: var(--bg-soft);
