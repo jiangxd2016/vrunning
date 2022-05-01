@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { isDark, toggleDark } from '~/composables';
+import { isDark, toggleDark } from '~/composables'
 </script>
 
 <template>
@@ -13,8 +13,12 @@ import { isDark, toggleDark } from '~/composables';
         <div i-carbon-debug />
       </button>
       <a
-        class="icon-btn" i-carbon-logo-github rel="noreferrer"
-        href="https://github.com/" target="_blank" title="GitHub"
+        class="icon-btn"
+        i-carbon-logo-github
+        rel="noreferrer"
+        href="https://github.com/"
+        target="_blank"
+        title="GitHub"
       />
       <button class="icon-btn !outline-none" @click="toggleDark()">
         <div v-if="isDark" i-carbon-moon />

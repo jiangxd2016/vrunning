@@ -18,13 +18,13 @@ const defineDep= {
   vue: 'https://unpkg.com/@vue/runtime-dom@3.2.31/dist/runtime-dom.esm-browser.js',
 };
 interface globalProps {
-  store?: Store
-  readonly?: boolean
-  autoResize?: boolean
-  clearConsole?: boolean
-  depLibs?: { name: string; url: string }[]
-  depCss: string[]
-  layout?: 'horizontal' | 'vertical'
+  store?: Store;
+  readonly?: boolean;
+  autoResize?: boolean;
+  clearConsole?: boolean;
+  depLibs?: { name: string; url: string }[];
+  depCss: string[];
+  layout?: 'horizontal' | 'vertical';
 }
 
 const store = inject<Store>('store');

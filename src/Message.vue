@@ -3,8 +3,8 @@ import { ref, watch } from 'vue';
 import type { CompilerError } from 'vue/compiler-sfc';
 
 const props = defineProps<{
-  err: string | Error
-  warn: string
+  err: string | Error;
+  warn: string;
 }>();
 
 const dismissed = ref(false);

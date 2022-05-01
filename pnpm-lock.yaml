@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@estjs/eslint-config': ^0.2.17
+      '@estjs/eslint-config': ^0.2.18
       '@rollup/plugin-commonjs': ^22.0.0
       '@rollup/plugin-node-resolve': ^13.2.1
       '@types/node': ^17.0.30
@@ -31,7 +31,7 @@ importers:
       vrunning: 'link:'
       vue: 3.2.33
     devDependencies:
-      '@estjs/eslint-config': 0.2.17_eslint@8.14.0+typescript@4.6.4
+      '@estjs/eslint-config': 0.2.18_eslint@8.14.0+typescript@4.6.4
       '@rollup/plugin-commonjs': 22.0.0_rollup@2.71.1
       '@rollup/plugin-node-resolve': 13.2.1_rollup@2.71.1
       '@types/node': 17.0.30
@@ -153,8 +153,8 @@ packages:
       - supports-color
     dev: true
 
-  /@estjs/eslint-config-basic/0.2.17_eslint@8.14.0:
-    resolution: {integrity: sha512-l67WUZSwn67VHqFGg9QzCWKWJOh1yieMZdexJFnzoGmByx4DyAk290fLHtNhfpg3IeWNaW0uiFG7YYFEy33Ryg==}
+  /@estjs/eslint-config-basic/0.2.18_eslint@8.14.0:
+    resolution: {integrity: sha512-EKtPCxLNnJpmbglOYYEEqov+K4L3EzLCjX6MZdtN9WVtYZU/PYZz2koZSIs+tvnY+79nio/4qU22h1ugG40B8A==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
@@ -199,13 +199,13 @@ packages:
       - supports-color
     dev: true
 
-  /@estjs/eslint-config-ts/0.2.17_eslint@8.14.0+typescript@4.6.4:
-    resolution: {integrity: sha512-dhmUv6qsMNcyxq7is+mgtNWCM/BRUZaecV2reERBtJnD9aCe7aESFUuvGnk0U9Ixn8kUkeA+b5KFTij2QRdrcw==}
+  /@estjs/eslint-config-ts/0.2.18_eslint@8.14.0+typescript@4.6.4:
+    resolution: {integrity: sha512-zuh/7mmbhpqXRS6H6FdvVJT3PtJubV01egVifk1cj1rNp5O85KqJMJrdp25f4ibUWrgAMYPtMPMDbSWjiLMNIw==}
     peerDependencies:
       eslint: '>=7.4.0'
       typescript: '>=3.9'
     dependencies:
-      '@estjs/eslint-config-basic': 0.2.17_eslint@8.14.0
+      '@estjs/eslint-config-basic': 0.2.18_eslint@8.14.0
       '@typescript-eslint/eslint-plugin': 5.21.0_ade6595cb7be1524e723c025c098ae5d
       '@typescript-eslint/parser': 5.21.0_eslint@8.14.0+typescript@4.6.4
       eslint: 8.14.0
@@ -227,12 +227,12 @@ packages:
       - typescript
     dev: true
 
-  /@estjs/eslint-config-vue/0.2.17_eslint@8.14.0+typescript@4.6.4:
-    resolution: {integrity: sha512-0ggLda/ktHDTcighOcOIgiie6BHndULzqUpM0rYv51U2BEXQydfmOocrZOoq94cM3W6gvKq/np1cIIPQPUSLeg==}
+  /@estjs/eslint-config-vue/0.2.18_eslint@8.14.0+typescript@4.6.4:
+    resolution: {integrity: sha512-WvvWZe5w+iaGwZu7IgRyEVtDTKkZ5Fnxh19ognl6jQeA1TJTkVcB4HlfnBLmJqyIYhnxz3KFiv7M/wxqjpagyQ==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
-      '@estjs/eslint-config-ts': 0.2.17_eslint@8.14.0+typescript@4.6.4
+      '@estjs/eslint-config-ts': 0.2.18_eslint@8.14.0+typescript@4.6.4
       eslint: 8.14.0
       eslint-plugin-vue: 8.7.1_eslint@8.14.0
     transitivePeerDependencies:
@@ -253,12 +253,12 @@ packages:
       - typescript
     dev: true
 
-  /@estjs/eslint-config-vue2/0.2.17_eslint@8.14.0+typescript@4.6.4:
-    resolution: {integrity: sha512-9o3jahPmNSf/fQ6xNS2Q7+sxglihAjKH0+P36xE6JqUU+FZ2VSI4OO2tYHH76AlkvpnwLt6/B88ZfjDg5FijNA==}
+  /@estjs/eslint-config-vue2/0.2.18_eslint@8.14.0+typescript@4.6.4:
+    resolution: {integrity: sha512-HQ5OboTPeaZpH0xDny/zLXBxpZF0JhuuDwB9LQvdoA6liSQ/j3xWum8NUajTHVqiR6zO4t4zIh+o/Q4Mlz3QIw==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
-      '@estjs/eslint-config-ts': 0.2.17_eslint@8.14.0+typescript@4.6.4
+      '@estjs/eslint-config-ts': 0.2.18_eslint@8.14.0+typescript@4.6.4
       eslint: 8.14.0
       eslint-plugin-vue: 8.7.1_eslint@8.14.0
     transitivePeerDependencies:
@@ -281,14 +281,14 @@ packages:
       - typescript
     dev: true
 
-  /@estjs/eslint-config/0.2.17_eslint@8.14.0+typescript@4.6.4:
-    resolution: {integrity: sha512-2ZTIkN7cl2dpJ3yY4Xc/kfNCTrvMd1x80m0tc7V/2dr5rdlZb0lGzzDD73YHH/Z1qhc7DvSOeb/KhAXLLxXZSQ==}
+  /@estjs/eslint-config/0.2.18_eslint@8.14.0+typescript@4.6.4:
+    resolution: {integrity: sha512-HkTXLdCpkcu2CdSx2Tc1fOfAffxzOeF8ku+bZcNH1eH0SdbknhvH4tUE+PqtBTRzfaRys4Fkx9v0x0B5aLH+PQ==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
-      '@estjs/eslint-config-ts': 0.2.17_eslint@8.14.0+typescript@4.6.4
-      '@estjs/eslint-config-vue': 0.2.17_eslint@8.14.0+typescript@4.6.4
-      '@estjs/eslint-config-vue2': 0.2.17_eslint@8.14.0+typescript@4.6.4
+      '@estjs/eslint-config-ts': 0.2.18_eslint@8.14.0+typescript@4.6.4
+      '@estjs/eslint-config-vue': 0.2.18_eslint@8.14.0+typescript@4.6.4
+      '@estjs/eslint-config-vue2': 0.2.18_eslint@8.14.0+typescript@4.6.4
       eslint: 8.14.0
       local-pkg: 0.4.1
     transitivePeerDependencies:

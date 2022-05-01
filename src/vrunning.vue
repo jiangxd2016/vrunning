@@ -12,11 +12,11 @@
 </template>
 
 <script lang="ts" setup>
-import { provide } from "vue";
-import SplitPane from "./SplitPane.vue";
-import Editor from "./Editor.vue";
-import Preview from "./Preview.vue";
-import Store from "./store";
+import { provide } from 'vue';
+import SplitPane from './SplitPane.vue';
+import Editor from './Editor.vue';
+import Preview from './Preview.vue';
+import Store from './store';
 interface globalProps {
   store?: Store;
   readonly?: boolean;
@@ -24,8 +24,8 @@ interface globalProps {
   clearConsole?: boolean;
   depLibs?: { name: string; url: string }[];
   depCss?: string[];
-  position: "right" | "left";
-  layout?: "horizontal" | "vertical";
+  position: 'right' | 'left';
+  layout?: 'horizontal' | 'vertical';
 }
 
 const props = withDefaults(defineProps<globalProps>(), {
@@ -33,19 +33,19 @@ const props = withDefaults(defineProps<globalProps>(), {
   autoResize: true,
   showImportMap: true,
   clearConsole: true,
-  layout: "horizontal",
-  position: "right",
+  layout: 'horizontal',
+  position: 'right',
   depLibs: () => [
     {
-      name: "element-plus",
-      url: "https://cdn.jsdelivr.net/npm/element-plus@2.1.4/dist/index.full.mjs",
+      name: 'element-plus',
+      url: 'https://cdn.jsdelivr.net/npm/element-plus@2.1.4/dist/index.full.mjs',
     },
   ],
-  depCss: () => ["https://unpkg.com/element-plus/dist/index.css"],
+  depCss: () => ['https://unpkg.com/element-plus/dist/index.css'],
 });
 
-provide("globalProps", props);
-provide("store", props.store);
+provide('globalProps', props);
+provide('store', props.store);
 </script>
 
 <style scoped>

@@ -9,9 +9,9 @@ import { debounce } from '../utils';
 import CodeMirror, { codemirrorOption } from './codemirror';
 
 interface Props {
-  mode?: string
-  value?: string
-  readonly?: boolean
+  mode?: string;
+  value?: string;
+  readonly?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
