@@ -3,7 +3,7 @@ import { isDark, isDebug, toggleDark, toggleDebug } from '~/composables'
 </script>
 
 <template>
-  <nav px8 py4 mb-4 border="b gray-400/10" flex="~ gap2" text-xl items-center>
+  <nav px8 py4 border="b gray-400/10" flex="~ gap2" text-xl items-center>
     <div font-mono text-left leading-1em mr6 text-sm>Vue running</div>
 
     <div flex-auto />
