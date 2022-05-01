@@ -1,24 +1,10 @@
 <script setup lang="ts">
-import { isDark, toggleDark, } from '~/composables';
+import { isDark, toggleDark } from '~/composables';
 </script>
 
 <template>
-<<<<<<< HEAD
   <nav px8 py4 border="b gray-400/10" flex="~ gap2" text-xl items-center>
     <div font-mono text-left leading-1em mr6 text-sm>Vue running</div>
-=======
-  <nav
-    px8 py4 mb-4
-    border="b gray-400/10" flex="~ gap2" text-xl
-    items-center
-  >
-    <div
-      font-mono text-left leading-1em
-      mr6 text-sm
-    >
-      Vue running
-    </div>
->>>>>>> 351d8a5dd7db074d9e3919abe3d236628a0b1722
 
     <div flex-auto />
 

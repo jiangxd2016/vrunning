@@ -18,7 +18,6 @@ import Editor from "./Editor.vue";
 import Preview from "./Preview.vue";
 import Store from "./store";
 interface globalProps {
-<<<<<<< HEAD
   store?: Store;
   readonly?: boolean;
   autoResize?: boolean;
@@ -27,16 +26,6 @@ interface globalProps {
   depCss?: string[];
   position: "right" | "left";
   layout?: "horizontal" | "vertical";
-=======
-  store?: Store
-  readonly?: boolean
-  autoResize?: boolean
-  clearConsole?: boolean
-  depLibs?: { name: string; url: string }[]
-  depCss?: string[]
-  position: 'right' | 'left'
-  layout?: 'horizontal' | 'vertical'
->>>>>>> 351d8a5dd7db074d9e3919abe3d236628a0b1722
 }
 
 const props = withDefaults(defineProps<globalProps>(), {
@@ -52,19 +41,11 @@ const props = withDefaults(defineProps<globalProps>(), {
       url: "https://cdn.jsdelivr.net/npm/element-plus@2.1.4/dist/index.full.mjs",
     },
   ],
-<<<<<<< HEAD
   depCss: () => ["https://unpkg.com/element-plus/dist/index.css"],
 });
 
 provide("globalProps", props);
 provide("store", props.store);
-=======
-  depCss: () => ['https://unpkg.com/element-plus/dist/index.css'],
-});
-
-provide('globalProps', props);
-provide('store', props.store);
->>>>>>> 351d8a5dd7db074d9e3919abe3d236628a0b1722
 </script>
 
 <style scoped>

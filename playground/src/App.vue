@@ -1,11 +1,5 @@
 <template>
-<<<<<<< HEAD
   <main font-sans text="gray-700 dark:gray-200" flex flex-col h-full w-full relative>
-=======
-  <main
-    font-sans text=" gray-700 dark:gray-200" relative
-  >
->>>>>>> 351d8a5dd7db074d9e3919abe3d236628a0b1722
     <TheNav />
     <Vrunning />
   </main>
