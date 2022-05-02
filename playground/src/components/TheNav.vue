@@ -12,6 +12,24 @@ import { isDark, toggleDark } from '~/composables'
       <button class="icon-btn !outline-none p1" @click="toggleDebug()">
         <div i-carbon-debug />
       </button>
+
+      <button class="icon-btn !outline-none" @click="toggleDark()">
+        <div v-if="togglePaneTop" i-carbon-open-panel-filled-bottom />
+        <div v-else i-carbon-open-panel-filled-top />
+      </button>
+      <button class="icon-btn !outline-none" @click="toggleDark()">
+        <div v-if="togglePaneLeft" i-carbon-open-panel-filled-left />
+        <div v-else i-carbon-open-panel-filled-right />
+      </button>
+      <button class="icon-btn !outline-none" @click="toggleDark()">
+        <div v-if="isDark" i-carbon-moon />
+        <div v-else i-carbon-sun />
+      </button>
+
+      <button class="icon-btn !outline-none p1" @click="toggleDebug()">
+        <div i--carbon-reset />
+      </button>
+
       <a
         class="icon-btn"
         i-carbon-logo-github
@@ -20,10 +38,6 @@ import { isDark, toggleDark } from '~/composables'
         target="_blank"
         title="GitHub"
       />
-      <button class="icon-btn !outline-none" @click="toggleDark()">
-        <div v-if="isDark" i-carbon-moon />
-        <div v-else i-carbon-sun />
-      </button>
     </div>
   </nav>
 </template>

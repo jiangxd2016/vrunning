@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import postcss from 'rollup-plugin-postcss';
 import esbuild from 'rollup-plugin-esbuild';
 import typescript from 'rollup-plugin-ts';
+import ts from 'rollup-plugin-typescript2'
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -32,7 +33,14 @@ export default {
     },
   ],
   plugins: [
-    typescript(),
+    // typescript(),
+    ts({
+      tsconfigOverride: {
+        compilerOptions: {
+          target: 'es5',
+        },
+      }
+    }),
     vue(),
     nodeResolve(),
     commonjs({
