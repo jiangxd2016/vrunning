@@ -18,14 +18,14 @@ import Editor from './Editor.vue';
 import Preview from './Preview.vue';
 import Store from './store';
 interface globalProps {
-  store?: Store
-  readonly?: boolean
-  autoResize?: boolean
-  clearConsole?: boolean
-  depLibs?: { name: string; url: string }[]
-  depCss?: string[]
-  position: 'right' | 'left'
-  layout?: 'horizontal' | 'vertical'
+  store?: Store;
+  readonly?: boolean;
+  autoResize?: boolean;
+  clearConsole?: boolean;
+  depLibs?: { name: string; url: string }[];
+  depCss?: string[];
+  position: 'right' | 'left';
+  layout?: 'horizontal' | 'vertical';
 }
 
 const props = withDefaults(defineProps<globalProps>(), {
@@ -61,6 +61,7 @@ provide('store', props.store);
 
   height: 100%;
   width: 100%;
+  flex: 1;
   font-size: 13px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
     'Helvetica Neue', sans-serif;

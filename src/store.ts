@@ -40,9 +40,9 @@ export class File {
 }
 
 export interface StoreState {
-  file: File
-  errors: (string | Error)[]
-  warn: string[]
+  file: File;
+  errors: (string | Error)[];
+  warn: string[];
 }
 
 export default class Store {
