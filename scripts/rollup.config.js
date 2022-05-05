@@ -4,6 +4,8 @@ import postcss from 'rollup-plugin-postcss';
 import esbuild from 'rollup-plugin-esbuild';
 import commonjs from '@rollup/plugin-commonjs';
 import ts from 'rollup-plugin-ts';
+import typescript from 'rollup-plugin-typescript2';
+
 import { terser } from 'rollup-plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 const basePath = path.resolve(__dirname, '../');
@@ -30,7 +32,9 @@ export default {
     },
   ],
   plugins: [
-    ts(),
+    typescript({
+      tsconfig: './src/tsconfig.json',
+    }),
     vue(),
     nodeResolve(),
     commonjs({

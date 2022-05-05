@@ -20,6 +20,6 @@
       "~/*": ["src/*"]
     }
   },
-  "exclude": ["dist", "node_modules", "palyground"],
-
+  "include": ["*.d.ts"],
+  "exclude": ["dist", "node_modules", "palyground"]
 }
