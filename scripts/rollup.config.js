@@ -13,7 +13,7 @@ export default {
   input: `${basePath}/src/main.ts`,
   output: [
     {
-      name: 'vrunning',
+      name: 'vue-running',
       file: `${basePath}/dist/index.mjs`,
       format: 'es',
       globals: {
@@ -22,7 +22,7 @@ export default {
       exports: 'named',
     },
     {
-      name: 'vrunning',
+      name: 'vue-running',
       file: `${basePath}/dist/index.cjs`,
       format: 'umd',
       globals: {

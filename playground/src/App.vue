@@ -3,12 +3,12 @@
     font-sans text=" gray-700 dark:gray-200" relative
   >
     <TheNav />
-    <Vrunning />
+    <vue-running />
   </main>
 </template>
 
 <script lang="ts" setup>
-import Vrunning from 'vrunning';
+import vueRunning from 'vue-running';
 // import IconVerticalVIew from "~icons/carbon/vertical-view";
 // import IconHorizontalView from "~icons/carbon/horizontal-view";
 // import IconOpenPanelLeft from "~icons/carbon/open-panel-filled-left";

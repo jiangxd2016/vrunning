@@ -1,5 +1,5 @@
 {
-  "name": "vrunning",
+  "name": "vue-running",
   "version": "0.0.0",
   "private": true,
   "description": "",
@@ -40,18 +40,18 @@
   "dependencies": {
     "codemirror": "^5.65.3",
     "sucrase": "^3.21.0",
-    "vrunning": "workspace:*",
-    "vue": "^3.2.33"
+    "vue": "^3.2.33",
+    "vue-running": "workspace:*"
   },
   "devDependencies": {
-    "@estjs/eslint-config": "^0.2.17",
+    "@estjs/eslint-config": "^0.2.20",
     "@rollup/plugin-commonjs": "^21.1.0",
-    "@rollup/plugin-node-resolve": "^13.2.1",
-    "@types/node": "^17.0.30",
-    "@vitejs/plugin-vue": "^2.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/node": "^17.0.31",
+    "@vitejs/plugin-vue": "^2.3.2",
     "bumpp": "^7.1.1",
     "eslint": "^8.14.0",
-    "rollup": "^2.70.2",
+    "rollup": "^2.72.0",
     "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-esbuild": "^4.9.1",
     "rollup-plugin-postcss": "^4.0.2",
@@ -59,7 +59,7 @@
     "rollup-plugin-ts": "^2.0.7",
     "rollup-plugin-vue": "^6.0.0",
     "typescript": "^4.6.4",
-    "vite": "^2.9.6",
+    "vite": "^2.9.8",
     "vue-tsc": "~0.33.9"
   },
   "typesVersions": {

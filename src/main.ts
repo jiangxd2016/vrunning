@@ -1,2 +1,2 @@
-import Vrunning from './vrunning.vue';
-export default Vrunning;
+import vueRunning from './vue-running.vue';
+export default vueRunning;

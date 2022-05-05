@@ -9,7 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
-      'vrunning': path.resolve(__dirname, '../src/main.ts'),
+      'vue-running': path.resolve(__dirname, '../src/main.ts'),
     },
   },
   plugins: [
