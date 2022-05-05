@@ -5,7 +5,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    TheNav: typeof import('./src/components/TheNav.vue')['default']
+    TheNav: typeof import('./src/components/TheNav.vue')['default'];
   }
 }
 
