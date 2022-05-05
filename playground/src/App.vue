@@ -5,6 +5,6 @@
   </main>
 </template>
 
-<script lang="ts" setup>
-import Vrunning from 'vue-running'
+<script lang="ts" setup>  
+import VueRunning from 'vue-running'
 </script>
