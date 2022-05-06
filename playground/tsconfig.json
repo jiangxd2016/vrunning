@@ -15,7 +15,8 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["vite/client"],
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "vue-running":["../src/main.ts"]
     }
   },
   "exclude": ["dist", "node_modules"]

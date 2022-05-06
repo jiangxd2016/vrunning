@@ -3,7 +3,7 @@
 
   "projectFolder": ".",
 
-  "mainEntryPointFilePath": "./dist/index.d.ts",
+  "mainEntryPointFilePath": "./dist/src/main.d.ts",
 
   "dtsRollup": {
     "enabled": true

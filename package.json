@@ -1,10 +1,13 @@
 {
   "name": "vue-running",
   "version": "0.0.0",
-  "private": true,
-  "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/estjs/vruning#readme",
+  "description": "Running Vue online",
+  "keywords": [
+    "vue",
+    "running",
+    "vue-running"
+  ],
+  "homepage": "https://github.com/estjs/vue-running#readme",
   "bugs": {
     "url": "https://github.com/estjs/vue-running/issues"
   },
@@ -13,38 +16,37 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/vue-running.cjs",
+  "module": "./dist/vue-running.mjs",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/vue-running.cjs",
+      "import": "./dist/vue-running.mjs",
+      "types": "./dist/vue-running.d.ts"
     },
-    "./style.css": "./dist/style.css",
-    "./dist/style.css": "./dist/style.css"
+    "./style.css": "./dist/vue-running.css",
+    "./dist/style.css": "./dist/vue-running.css"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/estjs/vue-running.git"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/vue-running.d.ts",
   "scripts": {
     "dev": "rollup -c scripts/rollup.config.js  -w ",
-    "build": "vite build",
-    "build-types": "vue-tsc -p ./tsconfig.build.json --declaration --emitDeclarationOnly",
+    "build": "rollup -c scripts/rollup.config.js",
+    "build-types": "vue-tsc -p ./tsconfig.build.json --declaration --emitDeclarationOnly  && api-extractor run -c api-extractor.json && rimraf dist/src",
     "play": "vite playground --open",
-    "types":" && api-extractor run -c api-extractor.json ",
     "play:build": "vite build playground",
-    "lint": "eslint . --fix",
-    "test:e2e": "cypress open",
-    "prepublishOnly": "pnpm run build",
+    "lint": "eslint ./src --fix",
+    "test": "vitest",
+    "typecheck": "vue-tsc --noEmit",
+    "prepublishOnly": "pnpm run build && pnpm run build-types",
     "release": "bumpp --commit --tag --push && pnpm publish"
   },
-
   "devDependencies": {
     "@estjs/eslint-config": "^0.2.21",
-    "@microsoft/api-extractor": "^7.19.2",
+    "@microsoft/api-extractor": "^7.23.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/codemirror": "^5.60.5",
@@ -53,17 +55,22 @@
     "bumpp": "^7.1.1",
     "codemirror": "^5.65.3",
     "rimraf": "^3.0.2",
+    "rollup-plugin-esbuild": "^4.9.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-ts": "^2.0.7",
     "sucrase": "^3.21.0",
-    "typescript": "^4.5.4",
-    "vite": "^2.6.5",
-    "vue": "^3.2.19",
+    "typescript": "^4.6.4",
+    "vite": "^2.9.8",
+    "vitest": "^0.9.3",
+    "vue": "^3.2.33",
     "vue-tsc": "^0.29.8"
   },
   "typesVersions": {
     "*": {
       "*": [
         "./dist/*",
-        "./dist/index.d.ts"
+        "./dist/vue-running.d.ts"
       ]
     }
   }

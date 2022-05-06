@@ -16,7 +16,9 @@ import { provide } from 'vue';
 import SplitPane from './SplitPane.vue';
 import Editor from './Editor.vue';
 import Preview from './Preview.vue';
-import Store from './store';
+import type { Store } from './store';
+import { replStore } from './store';
+
 interface globalProps {
   store?: Store;
   readonly?: boolean;
@@ -29,7 +31,7 @@ interface globalProps {
 }
 
 const props = withDefaults(defineProps<globalProps>(), {
-  store: () => new Store(),
+  store: () => new replStore(),
   autoResize: true,
   showImportMap: true,
   clearConsole: true,

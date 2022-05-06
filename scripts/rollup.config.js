@@ -3,8 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import postcss from 'rollup-plugin-postcss';
 import esbuild from 'rollup-plugin-esbuild';
 import commonjs from '@rollup/plugin-commonjs';
-import ts from 'rollup-plugin-ts';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from 'rollup-plugin-ts';
 
 import { terser } from 'rollup-plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -14,7 +13,7 @@ export default {
   output: [
     {
       name: 'vue-running',
-      file: `${basePath}/dist/index.mjs`,
+      file: `${basePath}/dist/vue-running.mjs`,
       format: 'es',
       globals: {
         vue: 'Vue',
@@ -23,7 +22,7 @@ export default {
     },
     {
       name: 'vue-running',
-      file: `${basePath}/dist/index.cjs`,
+      file: `${basePath}/dist/vue-running.cjs`,
       format: 'umd',
       globals: {
         vue: 'Vue',
@@ -32,9 +31,7 @@ export default {
     },
   ],
   plugins: [
-    typescript({
-      tsconfig: './src/tsconfig.json',
-    }),
+    typescript(),
     vue(),
     nodeResolve(),
     commonjs({

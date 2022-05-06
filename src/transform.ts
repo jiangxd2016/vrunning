@@ -2,8 +2,7 @@ import * as Compiler from 'vue/compiler-sfc';
 import { transform } from 'sucrase';
 import { toRefs } from 'vue';
 import type { BindingMetadata, CompilerOptions, SFCDescriptor } from 'vue/compiler-sfc';
-import type { File } from './store';
-import type Store from './store';
+import type { File, Store } from './store';
 
 export const COMP_IDENTIFIER = '__sfc__';
 export const filename = 'run.vue';

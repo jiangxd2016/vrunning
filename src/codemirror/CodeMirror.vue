@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<(e: 'change', value: string) => void>();
 
-const el = ref();
+const el = ref<HTMLElement>();
 const needAutoResize = true;
 
 onMounted(() => {

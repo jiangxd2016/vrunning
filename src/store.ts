@@ -45,7 +45,11 @@ export interface StoreState {
   warn: string[];
 }
 
-export default class Store {
+export interface Store {
+  state: StoreState;
+}
+
+export class replStore implements Store {
   state: StoreState;
   constructor() {
     const file: File = new File(welcomeCode);

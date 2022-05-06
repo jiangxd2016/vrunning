@@ -2,8 +2,8 @@
 import { inject } from 'vue';
 import CodeMirror from './codemirror/CodeMirror.vue';
 import Message from './Message.vue';
+import type { Store } from './store';
 import { debounce } from './utils';
-import type Store from './store';
 
 const store = inject('store') as Store;
 

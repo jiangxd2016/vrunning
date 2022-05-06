@@ -1,4 +1,4 @@
-import * as CodeMirror from 'codemirror';
+import CodeMirror from 'codemirror';
 import './codemirror.css';
 
 // language
@@ -35,7 +35,7 @@ export const codemirrorOption = {
     // 当匹配只有一项的时候是否自动补全
     completeSingle: true,
   },
-  scrollbarStyle: 'null',
+  // scrollbarStyle: 'null',
   matchBrackets: true,
   showCursorWhenSelecting: true,
   extraKeys: { Ctrl: 'autocomplete' },

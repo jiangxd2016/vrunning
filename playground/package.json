@@ -7,17 +7,17 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@vueuse/core": "^8.4.1",
+    "@vueuse/core": "^8.4.2",
     "vue": "^3.2.33",
     "vue-running": "workspace:*"
   },
   "devDependencies": {
     "@estjs/eslint-config": "^0.2.21",
     "@iconify-json/carbon": "^1.1.4",
-    "@unocss/reset": "^0.32.12",
+    "@unocss/reset": "^0.32.13",
     "@vitejs/plugin-vue": "^2.3.2",
     "eslint": "^8.14.0",
-    "unocss": "^0.32.12",
+    "unocss": "^0.32.13",
     "unplugin-auto-import": "^0.7.1",
     "unplugin-vue-components": "^0.19.3",
     "vite": "^2.9.8"
